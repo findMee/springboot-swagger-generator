@@ -40,9 +40,4 @@ public class EmployeeController {
     public Employee getEmployee(@PathVariable("empId") String empId) {
         return empData.get(empId);
     }
-
-    @GetMapping("/")
-    public String helloWorld() {
-        return "Hello World";
-    }
 }
