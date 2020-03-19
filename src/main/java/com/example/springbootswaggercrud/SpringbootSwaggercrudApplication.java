@@ -23,7 +23,7 @@ public class SpringbootSwaggercrudApplication {
 	@Bean
 	public Docket swaggerConfig() {
 		return new Docket(DocumentationType.SWAGGER_2)
-				.protocols(Sets.newHashSet("http", "https"))
+				.protocols(Sets.newHashSet("https"))
 				.select()
 				.paths(PathSelectors.ant("/employees/*"))
 				.build();
