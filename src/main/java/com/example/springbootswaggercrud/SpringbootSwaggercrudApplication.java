@@ -1,9 +1,12 @@
 package com.example.springbootswaggercrud;
 
+import java.util.HashSet;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.google.common.collect.Sets;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
@@ -20,6 +23,7 @@ public class SpringbootSwaggercrudApplication {
 	@Bean
 	public Docket swaggerConfig() {
 		return new Docket(DocumentationType.SWAGGER_2)
+				.protocols(Sets.newHashSet("http", "https"))
 				.select()
 				.paths(PathSelectors.ant("/employees/*"))
 				.build();
