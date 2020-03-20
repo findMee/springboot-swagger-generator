@@ -10,6 +10,6 @@ public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String helloWorld() {
-        return "Welcome to spring boot swagger project";
+        return "Welcome to spring boot with crud";
     }
 }

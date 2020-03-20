@@ -16,7 +16,7 @@ public class EmployeeController {
     private Map<String, Employee> empData = new HashMap<>();
 
     @RequestMapping(method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the list of Employees", response = Collection.class)
+    @ApiOperation(value = "Returns the list of Employees")
     public Collection<Employee> getEmployees() {
         return empData.values();
     }
