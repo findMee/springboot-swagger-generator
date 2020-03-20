@@ -35,16 +35,16 @@ public class EmployeeController {
         return employee;
     }
 
-    @RequestMapping(path = "empId", method = RequestMethod.DELETE)
+    @RequestMapping(path = "id", method = RequestMethod.DELETE)
     @ApiOperation(value = "Delete the Employee")
-    public String deleteEmployee(@PathVariable("empId") String empId) {
-        empData.remove(empId);
+    public String deleteEmployee(@PathVariable("id") String id) {
+        empData.remove(id);
         return "Success";
     }
 
-    @RequestMapping(path = "empId", method = RequestMethod.GET)
+    @RequestMapping(path = "id", method = RequestMethod.GET)
     @ApiOperation(value = "Get a particular Employee", response = Employee.class)
-    public Employee getEmployee(@PathVariable("empId") String empId) {
-        return empData.get(empId);
+    public Employee getEmployee(@PathVariable("id") String id) {
+        return empData.get(id);
     }
 }
