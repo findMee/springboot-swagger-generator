@@ -37,8 +37,9 @@ public class EmployeeController {
 
     @RequestMapping(path = "empId", method = RequestMethod.DELETE)
     @ApiOperation(value = "Delete the Employee")
-    public void deleteEmployee(@PathVariable("empId") String empId) {
+    public String deleteEmployee(@PathVariable("empId") String empId) {
         empData.remove(empId);
+        return "Success";
     }
 
     @RequestMapping(path = "empId", method = RequestMethod.GET)
