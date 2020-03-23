@@ -10,7 +10,7 @@ import com.example.springbootswaggercrud.crud.model.Employee;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("employees/")
+@RequestMapping("employees")
 public class EmployeeController {
 
     private Map<String, Employee> empData = new HashMap<>();
@@ -28,9 +28,9 @@ public class EmployeeController {
         return employee;
     }
 
-    @RequestMapping(method = RequestMethod.PUT)
+    @RequestMapping(path = "{id}", method = RequestMethod.PUT)
     @ApiOperation(value = "Updating the Employee", notes = "Provide the employee details to you want to update", response = Employee.class)
-    public Employee updateEmployee(@RequestBody Employee employee) {
+    public Employee updateEmployee(@PathVariable("id") String id, @RequestBody Employee employee) {
         empData.put(employee.getId(), employee);
         return employee;
     }
