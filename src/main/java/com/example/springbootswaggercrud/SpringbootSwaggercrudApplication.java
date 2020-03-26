@@ -21,6 +21,7 @@ public class SpringbootSwaggercrudApplication {
 	@Bean
 	public Docket swaggerConfig() {
 		return new Docket(DocumentationType.SWAGGER_2)
+				.protocols(Sets.newHashSet("https"))
 				.select()
 				.apis(RequestHandlerSelectors.basePackage("com.example.springbootswaggercrud.crud.controller"))
 				.build();
