@@ -24,27 +24,27 @@ public class EmployeeController {
     @RequestMapping(method = RequestMethod.POST)
     @ApiOperation(value = "Adding the Employee", response = Employee.class)
     public Employee addEmployee(@RequestBody Employee employee) {
-        empData.put(employee.getId(), employee);
+        empData.put(employee.getUserId(), employee);
         return employee;
     }
 
-    @RequestMapping(path = "{id}", method = RequestMethod.PUT)
+    @RequestMapping(path = "{userId}", method = RequestMethod.PUT)
     @ApiOperation(value = "Updating the Employee", notes = "Provide the employee details to you want to update", response = Employee.class)
-    public Employee updateEmployee(@PathVariable("id") String id, @RequestBody Employee employee) {
-        empData.put(employee.getId(), employee);
+    public Employee updateEmployee(@PathVariable("userId") String userId, @RequestBody Employee employee) {
+        empData.put(employee.getUserId(), employee);
         return employee;
     }
 
-    @RequestMapping(path = "{id}", method = RequestMethod.DELETE)
+    @RequestMapping(path = "{userId}", method = RequestMethod.DELETE)
     @ApiOperation(value = "Delete the Employee")
-    public String deleteEmployee(@PathVariable("id") String id) {
-        empData.remove(id);
+    public String deleteEmployee(@PathVariable("userId") String userId) {
+        empData.remove(userId);
         return "Success";
     }
 
-    @RequestMapping(path = "{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "{userId}", method = RequestMethod.GET)
     @ApiOperation(value = "Get a particular Employee", response = Employee.class)
-    public Employee getEmployee(@PathVariable("id") String id) {
-        return empData.get(id);
+    public Employee getEmployee(@PathVariable("userId") String userId) {
+        return empData.get(userId);
     }
 }
