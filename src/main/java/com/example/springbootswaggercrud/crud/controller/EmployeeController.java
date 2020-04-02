@@ -24,32 +24,33 @@ public class EmployeeController {
     @RequestMapping(method = RequestMethod.POST)
     @ApiOperation(value = "Adding the Employee", response = Employee.class)
     public Employee addEmployee(@RequestBody Employee employee) {
-        if (employee.getUserId() != null) {
-            empData.put(employee.getUserId(), employee);
+        if (employee.getEmpId() != null) {
+            empData.put(employee.getEmpId(), employee);
             return employee;
         }
         throw new RuntimeException("UserId can not be null");
     }
 
-    @RequestMapping(path = "{userId}", method = RequestMethod.PUT)
+    @RequestMapping(path = "{empId}", method = RequestMethod.PUT)
     @ApiOperation(value = "Updating the Employee", notes = "Provide the employee details to you want to update", response = Employee.class)
-    public Employee updateEmployee(@PathVariable("userId") String userId, @RequestBody Employee employee) {
-        if (employee.getUserId() != null) {
-            empData.put(employee.getUserId(), employee);
+    public Employee updateEmployee(@PathVariable("empId") String empId, @RequestBody Employee employee) {
+        if (employee.getEmpId() != null && empData.get(employee.getEmpId()) != null) {
+            empData.put(employee.getEmpId(), employee);
+            return employee;
         }
-        return employee;
+        throw new RuntimeException("Employee ");
     }
 
-    @RequestMapping(path = "{userId}", method = RequestMethod.DELETE)
+    @RequestMapping(path = "{empId}", method = RequestMethod.DELETE)
     @ApiOperation(value = "Delete the Employee")
-    public String deleteEmployee(@PathVariable("userId") String userId) {
-        empData.remove(userId);
+    public String deleteEmployee(@PathVariable("empId") String empId) {
+        empData.remove(empId);
         return "Success";
     }
 
-    @RequestMapping(path = "{userId}", method = RequestMethod.GET)
+    @RequestMapping(path = "{empId}", method = RequestMethod.GET)
     @ApiOperation(value = "Get a particular Employee", response = Employee.class)
-    public Employee getEmployee(@PathVariable("userId") String userId) {
-        return empData.get(userId);
+    public Employee getEmployee(@PathVariable("empId") String empId) {
+        return empData.get(empId);
     }
 }

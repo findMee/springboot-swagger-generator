@@ -1,27 +1,27 @@
 package com.example.springbootswaggercrud.crud.model;
 
 public class Employee {
-    private String userId;
-    private String userName;
+    private String empId;
+    private String empName;
     private String email;
     private String gender;
     private String phone;
     private String age;
 
-    public String getUserId() {
-        return userId;
+    public String getEmpId() {
+        return empId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setEmpId(String empId) {
+        this.empId = empId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getEmpName() {
+        return empName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setEmpName(String empName) {
+        this.empName = empName;
     }
 
     public String getEmail() {
