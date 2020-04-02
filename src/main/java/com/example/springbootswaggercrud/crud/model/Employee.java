@@ -1,10 +1,5 @@
 package com.example.springbootswaggercrud.crud.model;
 
-import java.util.Map;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class Employee {
     private String userId;
     private String userName;
@@ -59,35 +54,5 @@ public class Employee {
 
     public void setAge(String age) {
         this.age = age;
-    }
-
-    @JsonProperty("id")
-    @JsonIgnore
-    private void unpackUserId(Map<String, String> id) {
-        this.userId = id.get("value");
-    }
-
-    @JsonProperty("login")
-    @JsonIgnore
-    private void unpackUserName(Map<String, String> login) {
-        this.userName = login.get("username");
-    }
-
-    @JsonProperty("dob")
-    @JsonIgnore
-    private void unpackUserAge(Map<String, String> dob) {
-        this.age = dob.get("age");
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "userId='" + userId + '\'' +
-                ", userName='" + userName + '\'' +
-                ", email='" + email + '\'' +
-                ", gender='" + gender + '\'' +
-                ", phone='" + phone + '\'' +
-                ", age=" + age +
-                '}';
     }
 }

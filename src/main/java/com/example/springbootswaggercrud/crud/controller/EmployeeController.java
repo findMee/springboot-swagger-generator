@@ -24,14 +24,19 @@ public class EmployeeController {
     @RequestMapping(method = RequestMethod.POST)
     @ApiOperation(value = "Adding the Employee", response = Employee.class)
     public Employee addEmployee(@RequestBody Employee employee) {
-        empData.put(employee.getUserId(), employee);
-        return employee;
+        if (employee.getUserId() != null) {
+            empData.put(employee.getUserId(), employee);
+            return employee;
+        }
+        throw new RuntimeException("UserId can not be null");
     }
 
     @RequestMapping(path = "{userId}", method = RequestMethod.PUT)
     @ApiOperation(value = "Updating the Employee", notes = "Provide the employee details to you want to update", response = Employee.class)
     public Employee updateEmployee(@PathVariable("userId") String userId, @RequestBody Employee employee) {
-        empData.put(employee.getUserId(), employee);
+        if (employee.getUserId() != null) {
+            empData.put(employee.getUserId(), employee);
+        }
         return employee;
     }
 
