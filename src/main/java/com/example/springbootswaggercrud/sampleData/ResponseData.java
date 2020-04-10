@@ -6,6 +6,7 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ResponseData {
     private List<Employee> results;
 
@@ -21,27 +22,27 @@ public class ResponseData {
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class Employee {
-    private String userId;
-    private String userName;
+    private String empId;
+    private String empName;
     private String email;
     private String gender;
     private String phone;
     private String age;
 
-    public String getUserId() {
-        return userId;
+    public String getEmpId() {
+        return empId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setEmpId(String empId) {
+        this.empId = empId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getEmpName() {
+        return empName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setEmpName(String empName) {
+        this.empName = empName;
     }
 
     public String getEmail() {
@@ -78,12 +79,12 @@ class Employee {
 
     @JsonProperty("id")
     private void unpackUserId(Map<String, String> id) {
-        this.userId = id.get("value");
+        this.empId = id.get("value");
     }
 
     @JsonProperty("login")
     private void unpackUserName(Map<String, String> login) {
-        this.userName = login.get("username");
+        this.empName = login.get("username");
     }
 
     @JsonProperty("dob")

@@ -7,10 +7,12 @@ import java.util.Map;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.springbootswaggercrud.crud.model.Employee;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("employees")
+@Api(description = "Rest Apis for Employee crud", tags = {"Employee"})
 public class EmployeeController {
 
     private Map<String, Employee> empData = new HashMap<>();
@@ -28,7 +30,7 @@ public class EmployeeController {
             empData.put(employee.getEmpId(), employee);
             return employee;
         }
-        throw new RuntimeException("UserId can not be null");
+        throw new RuntimeException("EmployeeId can not be null");
     }
 
     @RequestMapping(path = "{empId}", method = RequestMethod.PUT)

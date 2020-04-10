@@ -23,7 +23,7 @@ public class PopulateSwaggerData {
         HttpEntity requestEntity = new HttpEntity<>(httpHeaders);
 
         //getSpringData(wmRestTemplate, "https://springboot-swaggercrud.herokuapp.com/employees", requestEntity);
-        for (int i = 100; i < 110; i++) {
+        for (int i = 100; i < 112; i++) {
             getSpringData(i, restTemplate, "https://randomuser.me/api?format=json", requestEntity);
         }
     }
@@ -39,7 +39,7 @@ public class PopulateSwaggerData {
             System.out.println("Exception" + e);
         }
 
-        response1.getResults().get(0).setUserId(String.valueOf(index));
+        response1.getResults().get(0).setEmpId(String.valueOf(index));
         postToSpringBootApp(restTemplate, response1.getResults().get(0));
     }
 
