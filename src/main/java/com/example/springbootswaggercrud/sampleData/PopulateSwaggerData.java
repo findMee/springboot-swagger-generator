@@ -23,7 +23,7 @@ public class PopulateSwaggerData {
         HttpEntity requestEntity = new HttpEntity<>(httpHeaders);
 
         //getSpringData(wmRestTemplate, "https://springboot-swaggercrud.herokuapp.com/employees", requestEntity);
-        for (int i = 100; i < 112; i++) {
+        for (int i = 100; i < 110; i++) {
             getSpringData(i, restTemplate, "https://randomuser.me/api?format=json", requestEntity);
         }
     }
@@ -46,8 +46,8 @@ public class PopulateSwaggerData {
     private void postToSpringBootApp(RestTemplate restTemplate, Employee employee) {
         HttpHeaders httpHeaders = new HttpHeaders();
         HttpEntity requestEntity = new HttpEntity<>(employee, httpHeaders);
-        ResponseEntity<String> response = restTemplate.exchange("http://localhost:8080/employees", HttpMethod.POST, requestEntity, String.class);
-        //ResponseEntity<String> response = restTemplate.exchange("https://springboot-swaggercrud.herokuapp.com/employees", HttpMethod.POST, requestEntity, String.class);
-        System.out.println(response);
+        ResponseEntity<String> localHostResponse = restTemplate.exchange("http://localhost:8080/employees", HttpMethod.POST, requestEntity, String.class);
+        //ResponseEntity<String> herokuResponse = restTemplate.exchange("https://springboot-swaggercrud.herokuapp.com/employees", HttpMethod.POST, requestEntity, String.class);
+        System.out.println(localHostResponse);
     }
 }
