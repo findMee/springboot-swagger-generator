@@ -55,4 +55,11 @@ public class EmployeeController {
     public Employee getEmployee(@PathVariable("empId") String empId) {
         return empData.get(empId);
     }
+
+    @DeleteMapping
+    @ApiOperation(("Used to re initialize the employee data"))
+    public String initEmployeeData() {
+        empData = new HashMap<>();
+        return "Successfully re-initialized the employee data";
+    }
 }

@@ -47,7 +47,8 @@ public class PopulateSwaggerData {
         HttpHeaders httpHeaders = new HttpHeaders();
         HttpEntity requestEntity = new HttpEntity<>(employee, httpHeaders);
         ResponseEntity<String> localHostResponse = restTemplate.exchange("http://localhost:8080/employees", HttpMethod.POST, requestEntity, String.class);
-        //ResponseEntity<String> herokuResponse = restTemplate.exchange("https://springboot-swaggercrud.herokuapp.com/employees", HttpMethod.POST, requestEntity, String.class);
         System.out.println(localHostResponse);
+        /*ResponseEntity<String> herokuResponse = restTemplate.exchange("https://springboot-swaggercrud.herokuapp.com/employees", HttpMethod.POST, requestEntity, String.class);
+        System.out.println(herokuResponse);*/
     }
 }
