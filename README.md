@@ -27,6 +27,7 @@ We can customise Swagger from Java
 ### Swagger UI
 
   **springfox** with **springfox-swagger-ui** will generate a swagger html page, It makes user interaction with the Swagger documentation much easier.
+  swagger ui html can be generated at ${applicationContextPath/swagger-ui.html
   
   MavenDependency:
   
